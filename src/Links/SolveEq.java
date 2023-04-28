@@ -20,7 +20,6 @@ public class SolveEq {
         Quad ExampleTwo = new Quad();
         Comp tarea = new Comp(-1.5,1.32288);
         Quad ExampleThree= new Quad();
-        Quad ExampleFour = new Quad();
 
         System.out.println("Hello, Is the equation you are trying to solve linear or quadratic? Is there a polynomial to the second degree?Choose one of the options below: ");
         System.out.println("Is your formula, y=mx+c  or  y=ax^2 + bx + c. Enter x or x^2 to confirm: ");
@@ -32,19 +31,27 @@ public class SolveEq {
 
         System.out.println("This discriminant is greater than 0. The coefficients are a =1 , b=65 , c=85");
         standard(1, 65, 85);
+        if( ExampleOne.Compute_dis(1, 65, 85) == 0){
+            System.out.println("There is a double real root due to the disciminant being zero");
+        }else{
+            System.out.println("No double real root detected");
+        }
         System.out.println("Discriminant equals = " +  ExampleOne.Compute_dis(1, 65 , 85)); // discriminant test case with two real roots
-        System.out.println(ExampleOne.bc(65, 85));
         System.out.println("The discriminant is greater than 0 so, there are only two real/distinct roots. Your distinct roots are: ");
         System.out.println("x= " + ExampleOne.Formula(1, 65,85)); // Quad Formula Solved for Positive Value
         System.out.println("x= " + ExampleOne.Formula_Neg(1, 65,85)); // Quad Formula Solved for Negative Value
-
+        
         System.out.println("------------------------------------------------");
         System.out.println("The discriminant is less than 0. The coeffecients are a=1 , b=3 , c=4"); 
         // we are testing two complex/imaginary roots
 
        System.out.println("Discriminant equals = " +  ExampleTwo.Compute_dis(1, 3 , 4));
        standard(1, 3, 4);
-       System.out.println(ExampleTwo.bc(3, 4));
+       if( ExampleTwo.Compute_dis(1, 3, 4) == 0){
+        System.out.println("There is a double real root due to the disciminant being zero");
+    }else{
+        System.out.println("No double real root detected");
+    }
 
 
             tarea.new_Format();     //a +bi
@@ -57,11 +64,16 @@ public class SolveEq {
         System.out.println("------------------------------------------------");
         System.out.println("This discriminant is equal to 0. The coefficients are a =4 , b=4 , c=1");
         standard(4, 4, 1);
+        if( ExampleThree.Compute_dis(4, 4, 1) == 0){
+            System.out.println("There is a double real root due to the disciminant being zero");
+        }else{
+            System.out.println("No double real root detected");
+        }
         System.out.println("Discriminant equals = " +  ExampleThree.Compute_dis(4, 4 , 1)); // discriminant test case with one real root
         System.out.println("Your two real roots are as follows: ");
         System.out.println("x= " + ExampleThree.Formula(4, 4,1)); // Quad Formula Solved for Positive Value
         System.out.println("x= " + ExampleThree.Formula_Neg(4, 4,1)); // Quad Formula Solved for Negative Value
-        System.out.println(ExampleThree.bc(4, 1));
+  
 
         double x = ExampleThree.Formula(4, 4,1);        //calling on the CompPair object using the Quad class
         double y = ExampleThree.Formula_Neg(4, 4,1);
@@ -69,17 +81,6 @@ public class SolveEq {
 
 
 
-       System.out.println("------------------------------------------------");
-        System.out.println("Here we have a curious case of a double root. The coefficients are a=1 b=-10 c=25");
-        standard(1, -10, 25);
-        System.out.println("Discriminant equals = " + ExampleFour.Compute_dis(1, -10, 25));
-        System.out.println("x= " + ExampleFour.Formula(1, -10,25)); // Quad Formula Solved for Positive Value
-        System.out.println("x= " + ExampleFour.Formula_Neg(1, -10,25)); // Quad Formula Solved for Negative Value
-
-        double f = ExampleFour.Formula(4, 4,1);        //calling on the CompPair object using the Quad class
-        double s = ExampleFour.Formula_Neg(4, 4,1);
-        System.out.println(ExampleFour.compare(f, s));
-        System.out.println(ExampleFour.bc(-10, 25));
 
     }
 }

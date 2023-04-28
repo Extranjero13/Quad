@@ -10,9 +10,5 @@ public class CompPair {
     }
 
 
-    //method to detect double root/ perfect squares
-String bc( int b , int c){
-        double x= (b/2) * 5;
-        return x == -c ? "This is a double root due to a perfect square" : "This is not a double root. Not a perfect square";
-    }   
+ 
 }
