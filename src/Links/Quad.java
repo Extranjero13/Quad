@@ -28,4 +28,5 @@ public class Quad extends CompPair {  //super
 String compare(double x, double y){     //CompPair object to be returned using super
         return super.checker(x, y);
     }
+
 }
